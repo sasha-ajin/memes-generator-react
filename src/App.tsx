@@ -18,6 +18,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import Generator from "./Generator/Generator";
+
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
@@ -140,7 +142,10 @@ export default function App() {
           ))}
         </List>
       </Drawer>
-      <Main open={open}></Main>
+      <Main open={open}>
+        <DrawerHeader />
+        <Generator />
+      </Main>
     </Box>
   );
 }
