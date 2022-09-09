@@ -18,3 +18,4 @@ export const StyledButton = styled(Button)`
   font-weight: bold !important;
   height: 50px !important;
 `;
+
