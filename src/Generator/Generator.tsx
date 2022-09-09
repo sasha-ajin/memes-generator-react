@@ -1,12 +1,19 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import { GeneratorContainer, ImageContainer, InputsContainer } from "./styles";
+import Image from "./components/Image/Image";
+import Inputs from "./components/Inputs/Inputs";
 
 const Generator = () => {
-    return (
-        <div>
-            ss
-        </div>
-    )
-}
+  return (
+    <GeneratorContainer>
+      <ImageContainer>
+        <Image />
+      </ImageContainer>
+      <InputsContainer>
+        <Inputs />
+      </InputsContainer>
+    </GeneratorContainer>
+  );
+};
 
-export default Generator
+export default Generator;
