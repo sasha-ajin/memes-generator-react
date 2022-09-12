@@ -23,7 +23,7 @@ const Image = () => {
   const handleModalClose = () => setIsModalOpen(false);
   return (
     <ImageContainer>
-      <StyledImage src="https://www.meme-arsenal.com/memes/2c7646b0a38fb67e48bf9a87fab5bf00.jpg" />
+      <StyledImage src="https:\/\/i.imgflip.com\/30b1gx.jpg" />
       <StyledButton variant="contained" onClick={handleModalOpen}>
         Select Image
       </StyledButton>

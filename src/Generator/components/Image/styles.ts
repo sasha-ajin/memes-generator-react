@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import { device } from "./../../../device";
+import { device } from "./../../../device";
 import Button from "@mui/material/Button";
 
 export const ImageContainer = styled.div`
@@ -9,13 +9,19 @@ export const ImageContainer = styled.div`
 `;
 
 export const StyledImage = styled.img`
-  width: 60%;
+  width: 90%;
   margin-bottom: 15px;
+  @media ${device.laptop} {
+    width: 55%;
+  }
 `;
 
 export const StyledButton = styled(Button)`
-  width: 60%;
+  width: 90%;
   font-weight: bold !important;
   height: 50px !important;
+  @media ${device.laptop} {
+    width: 55%;
+  }
 `;
 

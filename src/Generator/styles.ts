@@ -6,6 +6,7 @@ export const GeneratorContainer = styled.div`
   flex-direction: column;
   @media ${device.laptop} {
     flex-direction: row;
+    margin-top: 20px;
   }
 `;
 export const Container = styled.div`
