@@ -4,6 +4,7 @@ import Image from "./components/Image/Image";
 import Inputs from "./components/Inputs/Inputs";
 
 const Generator = () => {
+
   return (
     <GeneratorContainer>
       <Container>
