@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { ImageContainer, StyledImage, StyledButton } from "./styles";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import MyModalContent from "./components/MyModalContent/MyModalContent";
 
 const style = {

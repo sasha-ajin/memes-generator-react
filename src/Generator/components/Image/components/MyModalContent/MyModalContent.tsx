@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ImageService from "./../../../../../api/ImageService";
+import { MyModalContentContainer, StyledButton } from "./styles";
+import Typography from "@mui/material/Typography";
 
 type Image = [
   {
@@ -22,12 +24,21 @@ const MyModalContent = () => {
   useEffect(() => {
     fetchVehicles();
   }, []);
+  console.log(images);
   return (
-    <div>
-      djksjdskjksjskjd
-      {images != null && <img src={images[0].url} />}
-      <button onClick={() => console.log(images)}></button>
-    </div>
+    <MyModalContentContainer>
+      <Typography variant="h3" gutterBottom>
+        Select Image
+      </Typography>
+      <div>
+        <StyledButton size="large" variant="outlined">
+          Cancel
+        </StyledButton>
+        <StyledButton size="large" variant="contained">
+          Select
+        </StyledButton>
+      </div>
+    </MyModalContentContainer>
   );
 };
 
