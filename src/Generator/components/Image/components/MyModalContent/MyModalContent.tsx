@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImageService from "./../../../../../api/ImageService";
 import {
   MyModalContentContainer,
@@ -8,7 +8,7 @@ import {
   StyledButtonsContainer,
 } from "./styles";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import { SelectImageContext } from "../../../../../context/context";
 
 type Image = [
   {
@@ -27,15 +27,19 @@ type MyModalContentProps = {
 
 const MyModalContent: React.FC<MyModalContentProps> = (props) => {
   const [images, setImages] = useState<Image | null>(null);
-  async function fetchVehicles() {
+  const { choosedImage, setChoosedImage } = useContext(SelectImageContext);
+  const [activeImage, setActiveImage] = useState<string | null>(choosedImage);
+  const fetchVehicles = async () => {
     const response = await ImageService.getAll();
     setImages(response);
-  }
-
+  };
+  const submit = async () => {
+    props.modalClose();
+    setChoosedImage(activeImage);
+  };
   useEffect(() => {
     fetchVehicles();
   }, []);
-  images && console.log(images[0].url);
   return (
     <MyModalContentContainer>
       <Typography variant="h3" gutterBottom>
@@ -44,7 +48,12 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
       {images && (
         <GridImages>
           {images.map((image) => (
-            <StyledImg key={image.id} src={image.url} />
+            <StyledImg
+              active={activeImage === image.url ? true : false}
+              key={image.id}
+              src={image.url}
+              onClick={() => setActiveImage(image.url)}
+            />
           ))}
         </GridImages>
       )}
@@ -56,7 +65,12 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         >
           Cancel
         </StyledButton>
-        <StyledButton size="large" variant="contained">
+        <StyledButton
+          size="large"
+          variant="contained"
+          disabled={activeImage === choosedImage ? true : false}
+          onClick={submit}
+        >
           Select
         </StyledButton>
       </StyledButtonsContainer>

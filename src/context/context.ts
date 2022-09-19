@@ -1,11 +1,11 @@
 import { createContext } from "react";
 
-export type SelectImageContextContent = {
+type SelectImageContextContent = {
   choosedImage: null | string;
-  setChoosedImage: React.Dispatch<React.SetStateAction<null>> | null;
+  setChoosedImage: (c: string | null) => void;
 };
 
 export const SelectImageContext = createContext<SelectImageContextContent>({
   choosedImage: null,
-  setChoosedImage: null,
+  setChoosedImage: () => {},
 });

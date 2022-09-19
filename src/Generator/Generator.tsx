@@ -5,7 +5,7 @@ import Inputs from "./components/Inputs/Inputs";
 import { SelectImageContext } from "../context/context";
 
 const Generator = () => {
-  const [choosedImage, setChoosedImage] = useState(null);
+  const [choosedImage, setChoosedImage] = useState<string | null>(null);
   return (
     <SelectImageContext.Provider
       value={{

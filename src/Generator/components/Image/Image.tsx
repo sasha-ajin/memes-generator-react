@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ImageContainer, StyledImage, StyledButton } from "./styles";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import MyModalContent from "./components/MyModalContent/MyModalContent";
+import { SelectImageContext } from "../../../context/context";
 
 const style = {
   position: "absolute" as "absolute",
@@ -20,9 +21,12 @@ const Image = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
+  const { choosedImage } = useContext(SelectImageContext);
   return (
     <ImageContainer>
-      <StyledImage src="https://www.meme-arsenal.com/memes/2c7646b0a38fb67e48bf9a87fab5bf00.jpg" />
+      <StyledImage
+        src={choosedImage === null ? "/images/empty_image.png" : choosedImage}
+      />
       <StyledButton variant="contained" onClick={handleModalOpen}>
         Select Image
       </StyledButton>

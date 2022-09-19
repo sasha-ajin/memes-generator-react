@@ -16,9 +16,16 @@ export const GridImages = styled.div`
   grid-gap: 10px;
 `;
 
-export const StyledImg = styled.img`
+interface IStyledImg {
+  active: boolean;
+}
+
+export const StyledImg = styled.img<IStyledImg>`
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgb(18 17 36 / 4%), 0 0 16px rgb(18 17 36 / 8%);
+  box-shadow: ${(props) =>
+    props.active
+      ? "6px 6px 5px 1px rgba(10,88,177,0.88)"
+      : "0 2px 6px rgb(18 17 36 / 4%), 0 0 16px rgb(18 17 36 / 8%)"};
   height: 130px;
   width: 130px;
   objectfit: cover;
