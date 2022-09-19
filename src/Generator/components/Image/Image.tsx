@@ -33,7 +33,7 @@ const Image = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <MyModalContent />
+          <MyModalContent modalClose={handleModalClose} />
         </Box>
       </Modal>
     </ImageContainer>

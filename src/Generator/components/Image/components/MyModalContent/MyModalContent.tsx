@@ -21,7 +21,11 @@ type Image = [
   }
 ];
 
-const MyModalContent = () => {
+type MyModalContentProps = {
+  modalClose: () => any;
+};
+
+const MyModalContent: React.FC<MyModalContentProps> = (props) => {
   const [images, setImages] = useState<Image | null>(null);
   async function fetchVehicles() {
     const response = await ImageService.getAll();
@@ -45,7 +49,11 @@ const MyModalContent = () => {
         </GridImages>
       )}
       <StyledButtonsContainer>
-        <StyledButton size="large" variant="outlined">
+        <StyledButton
+          size="large"
+          variant="outlined"
+          onClick={props.modalClose}
+        >
           Cancel
         </StyledButton>
         <StyledButton size="large" variant="contained">
