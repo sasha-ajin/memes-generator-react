@@ -1,8 +1,9 @@
 import { createContext } from "react";
+import { Image } from "types/Image";
 
 type SelectImageContextContent = {
-  choosedImage: null | string;
-  setChoosedImage: (c: string | null) => void;
+  choosedImage: Image | null;
+  setChoosedImage: (c: Image | null) => void;
 };
 
 export const SelectImageContext = createContext<SelectImageContextContent>({

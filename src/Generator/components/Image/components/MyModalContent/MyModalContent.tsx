@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import ImageService from "./../../../../../api/ImageService";
+import ImageService from "api/ImageService";
 import {
   MyModalContentContainer,
   StyledButton,
@@ -8,27 +8,17 @@ import {
   StyledButtonsContainer,
 } from "./styles";
 import Typography from "@mui/material/Typography";
-import { SelectImageContext } from "../../../../../context/context";
-
-type Image = [
-  {
-    box_count: number;
-    height: number;
-    id: string;
-    name: string;
-    url: string;
-    width: number;
-  }
-];
+import { SelectImageContext } from "context/context";
+import { Image } from "types/Image";
 
 type MyModalContentProps = {
   modalClose: () => any;
 };
 
 const MyModalContent: React.FC<MyModalContentProps> = (props) => {
-  const [images, setImages] = useState<Image | null>(null);
+  const [images, setImages] = useState<Image[] | null>(null);
   const { choosedImage, setChoosedImage } = useContext(SelectImageContext);
-  const [activeImage, setActiveImage] = useState<string | null>(choosedImage);
+  const [activeImage, setActiveImage] = useState<Image | null>(choosedImage);
   const fetchVehicles = async () => {
     const response = await ImageService.getAll();
     setImages(response);
@@ -49,10 +39,10 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         <GridImages>
           {images.map((image) => (
             <StyledImg
-              active={activeImage === image.url ? true : false}
+              active={activeImage?.url === image.url ? true : false}
               key={image.id}
               src={image.url}
-              onClick={() => setActiveImage(image.url)}
+              onClick={() => setActiveImage(image)}
             />
           ))}
         </GridImages>

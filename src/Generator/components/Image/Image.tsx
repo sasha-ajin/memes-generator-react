@@ -3,7 +3,7 @@ import { ImageContainer, StyledImage, StyledButton } from "./styles";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import MyModalContent from "./components/MyModalContent/MyModalContent";
-import { SelectImageContext } from "../../../context/context";
+import { SelectImageContext } from "context/context";
 
 const style = {
   position: "absolute" as "absolute",
@@ -25,7 +25,7 @@ const Image = () => {
   return (
     <ImageContainer>
       <StyledImage
-        src={choosedImage === null ? "/images/empty_image.png" : choosedImage}
+        src={choosedImage === null ? "/images/empty_image.png" : choosedImage.url}
       />
       <StyledButton variant="contained" onClick={handleModalOpen}>
         Select Image

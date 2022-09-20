@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { device } from "./../../../device";
-import { InputLabel } from "@mui/material";
+import { device } from "device";
 import Button from "@mui/material/Button";
+import { InputLabel, OutlinedInput } from "@mui/material";
 
-export const InputContainer = styled.div`
+export const InputsContainer = styled.div`
   width: 90%;
   margin-top: 35px;
   display: flex;
@@ -16,11 +16,24 @@ export const InputContainer = styled.div`
   }
 `;
 
+export const InputContainer = styled.div`
+  margin-bottom: 35px;
+  border: 1px;
+`;
+
 export const StyledInputLabel = styled(InputLabel)`
   font-size: 25px !important;
   color: black !important;
   margin-bottom: 8px !important;
   margin-top: 16px !important;
+`;
+
+export const CoordinateOutlinedInput = styled(OutlinedInput)`
+  width: 50%;
+  margin-top: 5px;
+  p {
+    color: black;
+  }
 `;
 
 export const StyledButton = styled(Button)`
