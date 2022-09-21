@@ -15,14 +15,13 @@ type InputsProps = {
 
 const Inputs: React.FC<InputsProps> = (props) => {
   const { choosedImage } = useContext(SelectImageContext);
-  console.log(props.quantity);
   return (
     <div>
       <InputsContainer>
         {props.quantity ? (
-          [...Array(props.quantity)].map((index: number) => (
-            <InputContainer>
-              <OutlinedInput id="top-text" fullWidth />
+          [...Array(props.quantity)].map((element: number, index: number) => (
+            <InputContainer key={index}>
+              <OutlinedInput  id="top-text" fullWidth />
               <CoordinateOutlinedInput
                 id="top-text"
                 type="number"

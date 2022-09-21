@@ -10,6 +10,7 @@ import {
 import Typography from "@mui/material/Typography";
 import { SelectImageContext } from "context/context";
 import { Image } from "types/Image";
+import { isEqualImages } from "utils/isEqualImages";
 
 type MyModalContentProps = {
   modalClose: () => any;
@@ -58,7 +59,7 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         <StyledButton
           size="large"
           variant="contained"
-          disabled={activeImage === choosedImage ? true : false}
+          disabled={isEqualImages(activeImage, choosedImage) ? true : false}
           onClick={submit}
         >
           Select
