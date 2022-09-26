@@ -21,11 +21,13 @@ const Image = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
-  const { choosedImage } = useContext(SelectImageContext);
+  const { selectedImage } = useContext(SelectImageContext);
   return (
     <ImageContainer>
       <StyledImage
-        src={choosedImage === null ? "/images/empty_image.png" : choosedImage.url}
+        src={
+          selectedImage === null ? "/images/empty_image.png" : selectedImage.url
+        }
       />
       <StyledButton variant="contained" onClick={handleModalOpen}>
         Select Image

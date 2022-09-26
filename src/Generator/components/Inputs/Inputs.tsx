@@ -14,14 +14,14 @@ type InputsProps = {
 };
 
 const Inputs: React.FC<InputsProps> = (props) => {
-  const { choosedImage } = useContext(SelectImageContext);
+  const { selectedImage } = useContext(SelectImageContext);
   return (
     <div>
       <InputsContainer>
         {props.quantity ? (
           [...Array(props.quantity)].map((element: number, index: number) => (
             <InputContainer key={index}>
-              <OutlinedInput  id="top-text" fullWidth />
+              <OutlinedInput id="top-text" fullWidth />
               <CoordinateOutlinedInput
                 id="top-text"
                 type="number"
@@ -42,7 +42,7 @@ const Inputs: React.FC<InputsProps> = (props) => {
           <Typography variant="h3">Select Image</Typography>
         )}
         <StyledButton
-          disabled={choosedImage === null && true}
+          disabled={selectedImage === null && true}
           variant="contained"
           fullWidth
         >

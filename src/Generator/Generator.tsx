@@ -6,12 +6,12 @@ import { SelectImageContext } from "context/context";
 import { Image as ImageType } from "types/Image";
 
 const Generator = () => {
-  const [choosedImage, setChoosedImage] = useState<ImageType | null>(null);
+  const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
   return (
     <SelectImageContext.Provider
       value={{
-        choosedImage,
-        setChoosedImage,
+        selectedImage,
+        setSelectedImage,
       }}
     >
       <GeneratorContainer>
@@ -19,7 +19,7 @@ const Generator = () => {
           <Image />
         </Container>
         <Container>
-          <Inputs quantity={choosedImage ? choosedImage?.box_count : 0} />
+          <Inputs quantity={selectedImage ? selectedImage?.box_count : 0} />
         </Container>
       </GeneratorContainer>
     </SelectImageContext.Provider>

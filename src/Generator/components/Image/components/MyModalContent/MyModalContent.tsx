@@ -18,18 +18,18 @@ type MyModalContentProps = {
 
 const MyModalContent: React.FC<MyModalContentProps> = (props) => {
   const [images, setImages] = useState<Image[] | null>(null);
-  const { choosedImage, setChoosedImage } = useContext(SelectImageContext);
-  const [activeImage, setActiveImage] = useState<Image | null>(choosedImage);
-  const fetchVehicles = async () => {
+  const { selectedImage, setSelectedImage } = useContext(SelectImageContext);
+  const [activeImage, setActiveImage] = useState<Image | null>(selectedImage);
+  const fetchImages = async () => {
     const response = await ImageService.getAll();
     setImages(response);
   };
   const submit = async () => {
     props.modalClose();
-    setChoosedImage(activeImage);
+    setSelectedImage(activeImage);
   };
   useEffect(() => {
-    fetchVehicles();
+    fetchImages();
   }, []);
   return (
     <MyModalContentContainer>
@@ -59,7 +59,7 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         <StyledButton
           size="large"
           variant="contained"
-          disabled={isEqualImages(activeImage, choosedImage) ? true : false}
+          disabled={isEqualImages(activeImage, selectedImage) ? true : false}
           onClick={submit}
         >
           Select
