@@ -41,6 +41,13 @@ const Inputs: React.FC<InputsProps> = (props) => {
                 }
               />
               <ColorPicker value="#ffffff" onChange={handleChange} />
+              <CoordinateOutlinedInput
+                id="top-text"
+                type="number"
+                startAdornment={
+                  <InputAdornment position="start">SIZE</InputAdornment>
+                }
+              />
             </InputContainer>
           ))
         ) : (
