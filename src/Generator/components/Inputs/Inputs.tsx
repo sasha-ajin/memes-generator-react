@@ -15,6 +15,7 @@ type InputsProps = {
 
 const Inputs: React.FC<InputsProps> = (props) => {
   const { selectedImage } = useContext(SelectImageContext);
+  
   return (
     <div>
       <InputsContainer>

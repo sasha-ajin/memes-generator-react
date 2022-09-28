@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import { SelectImageContext } from "context/context";
 import { Image } from "types/Image";
 import { isEqualImages } from "utils/isEqualImages";
+import { ImageCreateBody } from "types/ImageCreateBody";
 
 type MyModalContentProps = {
   modalClose: () => any;
@@ -27,6 +28,33 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
   const submit = async () => {
     props.modalClose();
     setSelectedImage(activeImage);
+  };
+  const createImg = async () => {
+    const response = await ImageService.create({
+      template_id: "181913649",
+      username: "sashaajin",
+      password: "ffiiffssaarrll22",
+      font: "arial",
+      boxes: [
+        {
+          text: "One does not simply",
+          x: 10,
+          y: 10,
+          width: 548,
+          height: 100,
+          color: "#ffffff",
+        },
+        {
+          text: "Make custom memes on the web via imgflip API",
+          x: 10,
+          y: 225,
+          width: 548,
+          height: 100,
+          color: "#ffffff",
+        },
+      ],
+    });
+    console.log(response);
   };
   useEffect(() => {
     fetchImages();
@@ -64,6 +92,7 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         >
           Select
         </StyledButton>
+        <button onClick={() => createImg()}>sssss</button>
       </StyledButtonsContainer>
     </MyModalContentContainer>
   );
