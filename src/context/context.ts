@@ -6,7 +6,7 @@ type SelectImageContextContent = {
   selectedImage: Image | null;
   setSelectedImage: (c: Image | null) => void;
   textBoxes: Box[] | null;
-  setTextBoxes:  (c: Box[] | null) => void;
+  setTextBoxes: (c: Box[] | null) => void;
 };
 
 export const SelectImageContext = createContext<SelectImageContextContent>({

@@ -6,7 +6,6 @@ import axios from "axios";
 axios.defaults.baseURL = "https://api.imgflip.com";
 axios.defaults.headers.post["accept"] =
   "application/json, text/javascript, */*; q=0.01";
-  
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
