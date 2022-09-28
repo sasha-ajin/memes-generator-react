@@ -5,6 +5,7 @@ import {
   StyledButton,
   InputContainer,
   CoordinateOutlinedInput,
+  ColorPicker,
 } from "./styles";
 import { SelectImageContext } from "context/context";
 import Typography from "@mui/material/Typography";
@@ -15,7 +16,9 @@ type InputsProps = {
 
 const Inputs: React.FC<InputsProps> = (props) => {
   const { selectedImage } = useContext(SelectImageContext);
-  
+  const handleChange = (color: string) => {
+    console.log(color);
+  };
   return (
     <div>
       <InputsContainer>
@@ -37,6 +40,7 @@ const Inputs: React.FC<InputsProps> = (props) => {
                   <InputAdornment position="start">Y</InputAdornment>
                 }
               />
+              <ColorPicker value="#ffffff" onChange={handleChange} />
             </InputContainer>
           ))
         ) : (

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { device } from "device";
 import Button from "@mui/material/Button";
-import { InputLabel, OutlinedInput } from "@mui/material";
+import { OutlinedInput } from "@mui/material";
+import { MuiColorInput } from "mui-color-input";
 
 export const InputsContainer = styled.div`
   width: 90%;
@@ -21,19 +22,17 @@ export const InputContainer = styled.div`
   border: 1px;
 `;
 
-export const StyledInputLabel = styled(InputLabel)`
-  font-size: 25px !important;
-  color: black !important;
-  margin-bottom: 8px !important;
-  margin-top: 16px !important;
-`;
-
 export const CoordinateOutlinedInput = styled(OutlinedInput)`
   width: 50%;
   margin-top: 5px;
   p {
     color: black;
   }
+`;
+
+export const ColorPicker = styled(MuiColorInput)`
+  width: 50%;
+  margin-top: 5px !important;
 `;
 
 export const StyledButton = styled(Button)`
