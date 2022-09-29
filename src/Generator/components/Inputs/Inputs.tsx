@@ -32,7 +32,7 @@ const Inputs: React.FC = () => {
               <OutlinedInput
                 id="top-text"
                 fullWidth
-                defaultValue={textBox.text}
+                value={textBox.text}
                 onChange={(event) =>
                   handleUpdateFieldChanged(index, event.target.value, "text")
                 }
