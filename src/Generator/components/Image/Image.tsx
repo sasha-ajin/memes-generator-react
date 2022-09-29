@@ -34,10 +34,12 @@ const Image = () => {
         {textBoxes &&
           textBoxes.map((textBox, index) => (
             <TextBox
+              key={index}
               theme={{
                 x: textBox.x,
                 y: textBox.y,
                 fontWeight: textBox.fontWeight,
+                color: textBox.color,
               }}
             >
               {textBox.text}

@@ -26,6 +26,7 @@ export const TextBox = styled.div`
   font-size: ${(props) => props.theme.fontWeight}px;
   left: ${(props) => props.theme.x}px;
   top: ${(props) => props.theme.y}px;
+  color: ${(props) => props.theme.color};
 `;
 export const StyledButton = styled(Button)`
   width: 90%;

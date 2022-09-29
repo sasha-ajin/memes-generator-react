@@ -30,6 +30,7 @@ export const CoordinateOutlinedInput = styled(OutlinedInput)`
   }
 `;
 
+
 export const ColorPicker = styled(MuiColorInput)`
   width: 50%;
   margin-top: 5px !important;

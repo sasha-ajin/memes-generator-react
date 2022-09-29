@@ -9,7 +9,6 @@ import {
 } from "./styles";
 import { SelectImageContext } from "context/context";
 import Typography from "@mui/material/Typography";
-import { AnyCnameRecord } from "dns";
 import { Box } from "types/Box";
 
 const Inputs: React.FC = () => {
@@ -18,10 +17,10 @@ const Inputs: React.FC = () => {
   const handleUpdateFieldChanged = (
     index: number,
     value: any,
-    fieldName: string
+    fieldName: keyof Box
   ) => {
     let newArr: Box[] = textBoxes ? [...textBoxes] : [];
-    newArr[index][fieldName as keyof Box] = value;
+    newArr[index][fieldName] = value;
     setTextBoxes(newArr);
   };
   return (
@@ -41,6 +40,7 @@ const Inputs: React.FC = () => {
               <CoordinateOutlinedInput
                 id="top-text"
                 type="number"
+                inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                 startAdornment={
                   <InputAdornment position="start">X: </InputAdornment>
                 }
@@ -70,7 +70,9 @@ const Inputs: React.FC = () => {
               />
               <ColorPicker
                 value={textBox.color}
-                // onChange={handleUpdateFieldChanged(index)}
+                onChange={(color) =>
+                  handleUpdateFieldChanged(index, color, "color")
+                }
               />
               <CoordinateOutlinedInput
                 id="top-text"
