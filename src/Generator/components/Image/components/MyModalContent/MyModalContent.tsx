@@ -12,6 +12,7 @@ import { SelectImageContext } from "context/context";
 import { Image } from "types/Image";
 import { isEqualImages } from "utils/isEqualImages";
 import { ImageCreateBody } from "types/ImageCreateBody";
+import { Box } from "types/Box";
 
 type MyModalContentProps = {
   modalClose: () => any;
@@ -19,7 +20,8 @@ type MyModalContentProps = {
 
 const MyModalContent: React.FC<MyModalContentProps> = (props) => {
   const [images, setImages] = useState<Image[] | null>(null);
-  const { selectedImage, setSelectedImage } = useContext(SelectImageContext);
+  const { selectedImage, setSelectedImage, setTextBoxes } =
+    useContext(SelectImageContext);
   const [activeImage, setActiveImage] = useState<Image | null>(selectedImage);
   const fetchImages = async () => {
     const response = await ImageService.getAll();
@@ -28,34 +30,47 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
   const submit = async () => {
     props.modalClose();
     setSelectedImage(activeImage);
+    var textBoxesVar: Box[] = [];
+    for (let i = 0; i < (activeImage ? activeImage?.box_count : 0); i++) {
+      textBoxesVar.push({
+        text: "",
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+        color: "#ffffff",
+        fontWeight: 35,
+      });
+    }
+    setTextBoxes(textBoxesVar);
   };
-  const createImg = async () => {
-    const response = await ImageService.create({
-      template_id: "181913649",
-      username: "sashaajin",
-      password: "ffiiffssaarrll22",
-      font: "arial",
-      boxes: [
-        {
-          text: "One does not simply",
-          x: 10,
-          y: 10,
-          width: 548,
-          height: 100,
-          color: "#ffffff",
-        },
-        {
-          text: "Make custom memes on the web via imgflip API",
-          x: 10,
-          y: 225,
-          width: 548,
-          height: 100,
-          color: "#ffffff",
-        },
-      ],
-    });
-    console.log(response);
-  };
+  // const createImg = async () => {
+  //   const response = await ImageService.create({
+  //     template_id: "181913649",
+  //     username: "sashaajin",
+  //     password: "ffiiffssaarrll22",
+  //     font: "arial",
+  //     boxes: [
+  //       {
+  //         text: "One does not simply",
+  //         x: 10,
+  //         y: 10,
+  //         width: 548,
+  //         height: 100,
+  //         color: "#ffffff",
+  //       },
+  //       {
+  //         text: "Make custom memes on the web via imgflip API",
+  //         x: 10,
+  //         y: 225,
+  //         width: 548,
+  //         height: 100,
+  //         color: "#ffffff",
+  //       },
+  //     ],
+  //   });
+  //   console.log(response);
+  // };
   useEffect(() => {
     fetchImages();
   }, []);
@@ -92,7 +107,7 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         >
           Select
         </StyledButton>
-        <button onClick={() => createImg()}>sssss</button>
+        {/* <button onClick={() => createImg()}>sssss</button> */}
       </StyledButtonsContainer>
     </MyModalContentContainer>
   );

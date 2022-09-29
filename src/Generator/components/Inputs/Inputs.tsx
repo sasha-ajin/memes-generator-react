@@ -9,43 +9,87 @@ import {
 } from "./styles";
 import { SelectImageContext } from "context/context";
 import Typography from "@mui/material/Typography";
+import { AnyCnameRecord } from "dns";
+import { Box } from "types/Box";
 
-type InputsProps = {
-  quantity: number;
-};
-
-const Inputs: React.FC<InputsProps> = (props) => {
-  const { selectedImage } = useContext(SelectImageContext);
+const Inputs: React.FC = () => {
+  const { selectedImage, textBoxes, setTextBoxes } =
+    useContext(SelectImageContext);
   const handleChange = (color: string) => {
     console.log(color);
+  };
+  const handleUpdateFieldChanged = (
+    index: number,
+    value: any,
+    fieldName: string
+  ) => {
+    let newArr: Box[] = textBoxes ? [...textBoxes] : [];
+    newArr[index][fieldName as keyof Box] = value;
+    setTextBoxes(newArr);
   };
   return (
     <div>
       <InputsContainer>
-        {props.quantity ? (
-          [...Array(props.quantity)].map((element: number, index: number) => (
+        {textBoxes ? (
+          textBoxes.map((textBox, index) => (
             <InputContainer key={index}>
-              <OutlinedInput id="top-text" fullWidth />
-              <CoordinateOutlinedInput
+              <OutlinedInput
                 id="top-text"
-                type="number"
-                startAdornment={
-                  <InputAdornment position="start">X</InputAdornment>
+                fullWidth
+                defaultValue={textBox.text}
+                onChange={(event) =>
+                  handleUpdateFieldChanged(index, event.target.value, "text")
                 }
               />
               <CoordinateOutlinedInput
                 id="top-text"
                 type="number"
                 startAdornment={
-                  <InputAdornment position="start">Y</InputAdornment>
+                  <InputAdornment position="start">X: </InputAdornment>
+                }
+                defaultValue={textBox.x}
+                onChange={(event) =>
+                  handleUpdateFieldChanged(
+                    index,
+                    Number(event.target.value),
+                    "x"
+                  )
                 }
               />
-              <ColorPicker value="#ffffff" onChange={handleChange} />
               <CoordinateOutlinedInput
                 id="top-text"
                 type="number"
                 startAdornment={
-                  <InputAdornment position="start">SIZE</InputAdornment>
+                  <InputAdornment position="start">Y: </InputAdornment>
+                }
+                defaultValue={textBox.y}
+                onChange={(event) =>
+                  handleUpdateFieldChanged(
+                    index,
+                    Number(event.target.value),
+                    "y"
+                  )
+                }
+              />
+              <ColorPicker
+                value={textBox.color}
+                // onChange={(event) =>
+                //   handleUpdateFieldChanged(index, event.target.value, "color")
+                // }
+              />
+              <CoordinateOutlinedInput
+                id="top-text"
+                type="number"
+                startAdornment={
+                  <InputAdornment position="start">SIZE(px): </InputAdornment>
+                }
+                defaultValue={textBox.fontWeight}
+                onChange={(event) =>
+                  handleUpdateFieldChanged(
+                    index,
+                    Number(event.target.value),
+                    "fontWeight"
+                  )
                 }
               />
             </InputContainer>

@@ -23,9 +23,10 @@ const Generator = () => {
           <Image />
         </Container>
         <Container>
-          <Inputs quantity={selectedImage ? selectedImage?.box_count : 0} />
+          <Inputs />
         </Container>
       </GeneratorContainer>
+      <button onClick={() => console.log(textBoxes)}></button>
     </SelectImageContext.Provider>
   );
 };
