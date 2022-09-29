@@ -44,14 +44,18 @@ const Inputs: React.FC = () => {
                 startAdornment={
                   <InputAdornment position="start">X: </InputAdornment>
                 }
-                defaultValue={textBox.x}
-                onChange={(event) =>
-                  handleUpdateFieldChanged(
-                    index,
-                    Number(event.target.value),
-                    "x"
-                  )
-                }
+                // defaultValue={textBox.x}
+                value={textBox.x}
+                onChange={(event) => {
+                  if (Number(event.target.value) <= 0)
+                    handleUpdateFieldChanged(index, 0, "x");
+                  else
+                    handleUpdateFieldChanged(
+                      index,
+                      Number(event.target.value),
+                      "x"
+                    );
+                }}
               />
               <CoordinateOutlinedInput
                 id="top-text"
@@ -59,14 +63,17 @@ const Inputs: React.FC = () => {
                 startAdornment={
                   <InputAdornment position="start">Y: </InputAdornment>
                 }
-                defaultValue={textBox.y}
-                onChange={(event) =>
-                  handleUpdateFieldChanged(
-                    index,
-                    Number(event.target.value),
-                    "y"
-                  )
-                }
+                value={textBox.y}
+                onChange={(event) => {
+                  if (Number(event.target.value) <= 0)
+                    handleUpdateFieldChanged(index, 0, "y");
+                  else
+                    handleUpdateFieldChanged(
+                      index,
+                      Number(event.target.value),
+                      "y"
+                    );
+                }}
               />
               <ColorPicker
                 value={textBox.color}
@@ -80,14 +87,17 @@ const Inputs: React.FC = () => {
                 startAdornment={
                   <InputAdornment position="start">SIZE(px): </InputAdornment>
                 }
-                defaultValue={textBox.fontWeight}
-                onChange={(event) =>
-                  handleUpdateFieldChanged(
-                    index,
-                    Number(event.target.value),
-                    "fontWeight"
-                  )
-                }
+                value={textBox.fontWeight}
+                onChange={(event) => {
+                  if (Number(event.target.value) <= 1)
+                    handleUpdateFieldChanged(index, 1, "fontWeight");
+                  else
+                    handleUpdateFieldChanged(
+                      index,
+                      Number(event.target.value),
+                      "fontWeight"
+                    );
+                }}
               />
             </InputContainer>
           ))
