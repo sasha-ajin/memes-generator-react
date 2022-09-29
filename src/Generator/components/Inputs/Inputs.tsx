@@ -44,7 +44,6 @@ const Inputs: React.FC = () => {
                 startAdornment={
                   <InputAdornment position="start">X: </InputAdornment>
                 }
-                // defaultValue={textBox.x}
                 value={textBox.x}
                 onChange={(event) => {
                   if (Number(event.target.value) <= 0)
@@ -77,6 +76,7 @@ const Inputs: React.FC = () => {
               />
               <ColorPicker
                 value={textBox.color}
+                format="hex"
                 onChange={(color) =>
                   handleUpdateFieldChanged(index, color, "color")
                 }
