@@ -1,5 +1,11 @@
 import React, { useContext, useState } from "react";
-import { ImageContainer, StyledImage, StyledButton } from "./styles";
+import {
+  ImageContainer,
+  StyledImage,
+  StyledButton,
+  StyledImageContainer,
+  TextBox,
+} from "./styles";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import MyModalContent from "./components/MyModalContent/MyModalContent";
@@ -21,14 +27,31 @@ const Image = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
-  const { selectedImage } = useContext(SelectImageContext);
+  const { selectedImage, textBoxes } = useContext(SelectImageContext);
   return (
     <ImageContainer>
-      <StyledImage
-        src={
-          selectedImage === null ? "/images/empty_image.png" : selectedImage.url
-        }
-      />
+      <StyledImageContainer>
+        {textBoxes &&
+          textBoxes.map((textBox, index) => (
+            <TextBox
+              theme={{
+                x: textBox.x,
+                y: textBox.y,
+                fontWeight: textBox.fontWeight,
+              }}
+            >
+              {textBox.text}
+            </TextBox>
+          ))}
+        <StyledImage
+          src={
+            selectedImage === null
+              ? "/images/empty_image.png"
+              : selectedImage.url
+          }
+        />
+      </StyledImageContainer>
+
       <StyledButton variant="contained" onClick={handleModalOpen}>
         Select Image
       </StyledButton>

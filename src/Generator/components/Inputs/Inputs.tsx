@@ -15,9 +15,6 @@ import { Box } from "types/Box";
 const Inputs: React.FC = () => {
   const { selectedImage, textBoxes, setTextBoxes } =
     useContext(SelectImageContext);
-  const handleChange = (color: string) => {
-    console.log(color);
-  };
   const handleUpdateFieldChanged = (
     index: number,
     value: any,
@@ -73,9 +70,7 @@ const Inputs: React.FC = () => {
               />
               <ColorPicker
                 value={textBox.color}
-                // onChange={(event) =>
-                //   handleUpdateFieldChanged(index, event.target.value, "color")
-                // }
+                // onChange={handleUpdateFieldChanged(index)}
               />
               <CoordinateOutlinedInput
                 id="top-text"

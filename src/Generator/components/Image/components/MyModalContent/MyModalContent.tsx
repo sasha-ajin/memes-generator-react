@@ -39,7 +39,7 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         width: 0,
         height: 0,
         color: "#ffffff",
-        fontWeight: 35,
+        fontWeight: 20,
       });
     }
     setTextBoxes(textBoxesVar);

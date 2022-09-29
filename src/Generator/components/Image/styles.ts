@@ -9,13 +9,24 @@ export const ImageContainer = styled.div`
 `;
 
 export const StyledImage = styled.img`
-  width: 90%;
-  margin-bottom: 15px;
-  @media ${device.laptop} {
-    width: 55%;
-  }
+  width: 100%;
 `;
 
+export const StyledImageContainer = styled.div`
+  width: 90%;
+  margin-bottom: 15px;
+  position: relative;
+  @media ${device.laptop} {
+    width: 55%;
+    height: auto;
+  }
+`;
+export const TextBox = styled.div`
+  position: absolute;
+  font-size: ${(props) => props.theme.fontWeight}px;
+  left: ${(props) => props.theme.x}px;
+  top: ${(props) => props.theme.y}px;
+`;
 export const StyledButton = styled(Button)`
   width: 90%;
   font-weight: bold !important;
@@ -24,4 +35,3 @@ export const StyledButton = styled(Button)`
     width: 55%;
   }
 `;
-
