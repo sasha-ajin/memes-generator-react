@@ -23,14 +23,23 @@ export const StyledImageContainer = styled.div`
   }
 `;
 
-export const TextBox = styled.div`
+interface ITextBox {
+  fontWeight: number;
+  x: number;
+  y: number;
+  outlineWeight: number;
+  colorOutlined: string;
+  color: string;
+}
+
+export const TextBox = styled.div<ITextBox>`
   position: absolute;
-  font-size: ${(props) => props.theme.fontWeight}px;
-  left: ${(props) => props.theme.x}px;
-  top: ${(props) => props.theme.y}px;
-  color: ${(props) => props.theme.color};
-  -webkit-text-stroke: ${(props) => props.theme.outlineWeight}px
-    ${(props) => props.theme.colorOutlined};
+  font-size: ${(props) => props.fontWeight}px;
+  left: ${(props) => props.x}px;
+  top: ${(props) => props.y}px;
+  color: ${(props) => props.color};
+  -webkit-text-stroke: ${(props) => props.outlineWeight}px
+    ${(props) => props.colorOutlined};
 `;
 
 export const StyledButton = styled(Button)`

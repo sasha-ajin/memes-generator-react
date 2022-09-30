@@ -3,10 +3,9 @@ import ImageService from "api/ImageService";
 import {
   MyModalContentContainer,
   StyledButton,
-  StyledImg,
-  GridImages,
   StyledButtonsContainer,
 } from "./styles";
+import { StyledImg, GridImages } from "styles";
 import Typography from "@mui/material/Typography";
 import { SelectImageContext } from "context/context";
 import { Image } from "types/Image";
@@ -41,7 +40,7 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         color: "#ffffff",
         fontWeight: 20,
         colorOutlined: "#ffffff",
-        outlineWeight: 1
+        outlineWeight: 1,
       });
     }
     setTextBoxes(textBoxesVar);
@@ -82,9 +81,11 @@ const MyModalContent: React.FC<MyModalContentProps> = (props) => {
         Select Image
       </Typography>
       {images && (
-        <GridImages>
+        <GridImages height="300px" scroll={true}>
           {images.map((image) => (
             <StyledImg
+              height="130px"
+              width="130px"
               active={activeImage?.url === image.url ? true : false}
               key={image.id}
               src={image.url}

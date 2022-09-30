@@ -35,14 +35,12 @@ const Image: React.FC = () => {
           textBoxes.map((textBox, index) => (
             <TextBox
               key={index}
-              theme={{
-                x: textBox.x,
-                y: textBox.y,
-                fontWeight: textBox.fontWeight,
-                color: textBox.color,
-                colorOutlined: textBox.colorOutlined,
-                outlineWeight: textBox.outlineWeight,
-              }}
+              x={textBox.x}
+              y={textBox.y}
+              fontWeight={textBox.fontWeight}
+              color={textBox.color}
+              colorOutlined={textBox.colorOutlined}
+              outlineWeight={textBox.outlineWeight}
             >
               {textBox.text}
             </TextBox>
