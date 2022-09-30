@@ -10,6 +10,7 @@ export const ImageContainer = styled.div`
 
 export const StyledImage = styled.img`
   width: 100%;
+  box-shadow: 0 2px 6px rgb(18 17 36 / 4%), 0 0 16px rgb(18 17 36 / 8%);
 `;
 
 export const StyledImageContainer = styled.div`
