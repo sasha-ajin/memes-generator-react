@@ -11,7 +11,7 @@ export const GridImages = styled.div<IGridImages>`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
-  justify-content: center;
+  justify-items: center;
 `;
 
 interface IStyledImg {
