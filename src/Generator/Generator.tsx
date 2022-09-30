@@ -6,7 +6,7 @@ import { SelectImageContext } from "context/context";
 import { Image as ImageType } from "types/Image";
 import { Box as BoxType } from "types/Box";
 
-const Generator = () => {
+const Generator: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
   const [textBoxes, setTextBoxes] = useState<BoxType[] | null>(null);
   return (

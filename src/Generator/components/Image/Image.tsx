@@ -23,7 +23,7 @@ const style = {
   p: 4,
 };
 
-const Image = () => {
+const Image: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
