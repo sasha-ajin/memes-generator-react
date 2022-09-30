@@ -5,5 +5,7 @@ export type Box = {
   width: number;
   height: number;
   color: string;
+  colorOutlined: string;
   fontWeight: number;
+  outlineWeight: number;
 };

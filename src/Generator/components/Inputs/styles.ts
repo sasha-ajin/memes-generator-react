@@ -30,11 +30,11 @@ export const CoordinateOutlinedInput = styled(OutlinedInput)`
   }
 `;
 
-
 export const ColorPicker = styled(MuiColorInput)`
   width: 50%;
   margin-top: 5px !important;
 `;
+
 
 export const StyledButton = styled(Button)`
   margin-top: 40px !important;

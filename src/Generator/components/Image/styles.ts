@@ -21,13 +21,17 @@ export const StyledImageContainer = styled.div`
     height: auto;
   }
 `;
+
 export const TextBox = styled.div`
   position: absolute;
   font-size: ${(props) => props.theme.fontWeight}px;
   left: ${(props) => props.theme.x}px;
   top: ${(props) => props.theme.y}px;
   color: ${(props) => props.theme.color};
+  -webkit-text-stroke: ${(props) => props.theme.outlineWeight}px
+    ${(props) => props.theme.colorOutlined};
 `;
+
 export const StyledButton = styled(Button)`
   width: 90%;
   font-weight: bold !important;

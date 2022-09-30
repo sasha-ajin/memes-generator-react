@@ -78,6 +78,7 @@ const Inputs: React.FC = () => {
               <ColorPicker
                 value={textBox.color}
                 format="hex"
+                label="text color"
                 onChange={(color) =>
                   handleUpdateFieldChanged(index, color, "color")
                 }
@@ -97,6 +98,32 @@ const Inputs: React.FC = () => {
                       index,
                       Number(event.target.value),
                       "fontWeight"
+                    );
+                }}
+              />
+              <ColorPicker
+                value={textBox.colorOutlined}
+                format="hex"
+                label="outlined color"
+                onChange={(color) =>
+                  handleUpdateFieldChanged(index, color, "colorOutlined")
+                }
+              />
+              <CoordinateOutlinedInput
+                id="top-text"
+                type="number"
+                startAdornment={
+                  <InputAdornment position="start">SIZE(px): </InputAdornment>
+                }
+                value={textBox.outlineWeight}
+                onChange={(event) => {
+                  if (Number(event.target.value) <= 1)
+                    handleUpdateFieldChanged(index, 1, "outlineWeight");
+                  else
+                    handleUpdateFieldChanged(
+                      index,
+                      Number(event.target.value),
+                      "outlineWeight"
                     );
                 }}
               />

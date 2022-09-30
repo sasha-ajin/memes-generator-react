@@ -40,6 +40,8 @@ const Image = () => {
                 y: textBox.y,
                 fontWeight: textBox.fontWeight,
                 color: textBox.color,
+                colorOutlined: textBox.colorOutlined,
+                outlineWeight: textBox.outlineWeight,
               }}
             >
               {textBox.text}
