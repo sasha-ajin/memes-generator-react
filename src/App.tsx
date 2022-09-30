@@ -19,6 +19,9 @@ import ListItemText from "@mui/material/ListItemText";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import Generator from "./Generator/Generator";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MemesList from "MemesList/MemesList";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -82,7 +85,7 @@ export default function App() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const navigate = useNavigate();
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -126,9 +129,18 @@ export default function App() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Memes List", "Generator"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
+          {[
+            { text: "Memes List", link: "/" },
+            { text: "Generator", link: "/memes_list" },
+          ].map((item, index) => (
+            <ListItem key={item.text} disablePadding>
+              <ListItemButton
+                onClick={() => {
+                  {
+                    index % 2 === 0 ? navigate("/memes_list") : navigate("/");
+                  }
+                }}
+              >
                 <ListItemIcon>
                   {index % 2 === 0 ? (
                     <FormatListBulletedIcon />
@@ -136,7 +148,7 @@ export default function App() {
                     <AppRegistrationIcon />
                   )}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={item.text} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -144,7 +156,10 @@ export default function App() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <Generator />
+        <Routes>
+          <Route path="/" element={<Generator />} />
+          <Route path="/memes_list" element={<MemesList />} />
+        </Routes>
       </Main>
     </Box>
   );
