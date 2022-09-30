@@ -20,6 +20,7 @@ const Inputs: React.FC = () => {
     fieldName: keyof Box
   ) => {
     let newArr: Box[] = textBoxes ? [...textBoxes] : [];
+    // @ts-ignore
     newArr[index][fieldName] = value;
     setTextBoxes(newArr);
   };
