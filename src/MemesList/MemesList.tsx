@@ -16,7 +16,7 @@ const MemesList: React.FC = () => {
   return (
     <MemesListContainer>
       {images && (
-        <GridImages height="300px" scroll={false}>
+        <GridImages scroll={false}>
           {images.map((image) => (
             <StyledImg
               key={image.id}

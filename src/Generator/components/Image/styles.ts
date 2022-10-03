@@ -34,6 +34,7 @@ interface ITextBox {
 
 export const TextBox = styled.div<ITextBox>`
   position: absolute;
+  font-family: arial;
   font-size: ${(props) => props.fontWeight}px;
   left: ${(props) => props.x}px;
   top: ${(props) => props.y}px;

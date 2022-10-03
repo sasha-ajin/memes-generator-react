@@ -39,5 +39,3 @@ export const StyledButton = styled(Button)`
     width: 55%;
   }
 `;
-
-

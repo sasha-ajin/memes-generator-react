@@ -35,7 +35,6 @@ export const ColorPicker = styled(MuiColorInput)`
   margin-top: 5px !important;
 `;
 
-
 export const StyledButton = styled(Button)`
   margin-top: 40px !important;
   font-weight: bold !important;

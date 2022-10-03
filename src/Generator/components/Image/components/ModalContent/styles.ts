@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "@mui/material/Button";
 
-export const MyModalContentContainer = styled.div`
+export const ModalContentContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;

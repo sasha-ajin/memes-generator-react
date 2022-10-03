@@ -1,9 +1,8 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -19,60 +18,10 @@ import ListItemText from "@mui/material/ListItemText";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import Generator from "./Generator/Generator";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MemesList from "MemesList/MemesList";
 import { useNavigate } from "react-router-dom";
-
-const drawerWidth = 240;
-
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
-  open?: boolean;
-}>(({ theme, open }) => ({
-  flexGrow: 1,
-  padding: theme.spacing(3),
-  transition: theme.transitions.create("margin", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  marginLeft: `-${drawerWidth}px`,
-  ...(open && {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  }),
-}));
-
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})<AppBarProps>(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
-}));
+import { Main, AppBar, DrawerHeader, drawerWidth } from "./AppLayout";
 
 export default function App() {
   const theme = useTheme();
@@ -81,7 +30,18 @@ export default function App() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
+  const routes = [
+    {
+      text: "Memes List",
+      link: "/memes_list",
+      Icon: <FormatListBulletedIcon />,
+    },
+    {
+      text: "Generator",
+      link: "/",
+      Icon: <AppRegistrationIcon />,
+    },
+  ];
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -100,9 +60,7 @@ export default function App() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            memes_generator.com
-          </Typography>
+          <Typography variant="h6">memes_generator.com</Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -129,25 +87,14 @@ export default function App() {
         </DrawerHeader>
         <Divider />
         <List>
-          {[
-            { text: "Memes List", link: "/" },
-            { text: "Generator", link: "/memes_list" },
-          ].map((item, index) => (
+          {routes.map((item, index) => (
             <ListItem key={item.text} disablePadding>
               <ListItemButton
                 onClick={() => {
-                  {
-                    index % 2 === 0 ? navigate("/memes_list") : navigate("/");
-                  }
+                  navigate(item.link);
                 }}
               >
-                <ListItemIcon>
-                  {index % 2 === 0 ? (
-                    <FormatListBulletedIcon />
-                  ) : (
-                    <AppRegistrationIcon />
-                  )}
-                </ListItemIcon>
+                <ListItemIcon>{item.Icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItemButton>
             </ListItem>

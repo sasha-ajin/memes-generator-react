@@ -7,27 +7,15 @@ import {
   TextBox,
 } from "./styles";
 import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import MyModalContent from "./components/MyModalContent/MyModalContent";
+import MyModalContent from "./components/ModalContent/ModalContent";
 import { SelectImageContext } from "context/context";
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "40%",
-  bgcolor: "background.paper",
-  borderRadius: "15px",
-  boxShadow: 24,
-  p: 4,
-};
 
 const Image: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
   const { selectedImage, textBoxes } = useContext(SelectImageContext);
+  const emptyImage = "/images/empty_image.png";
   return (
     <ImageContainer>
       <StyledImageContainer>
@@ -46,11 +34,7 @@ const Image: React.FC = () => {
             </TextBox>
           ))}
         <StyledImage
-          src={
-            selectedImage === null
-              ? "/images/empty_image.png"
-              : selectedImage.url
-          }
+          src={selectedImage === null ? emptyImage : selectedImage.url}
         />
       </StyledImageContainer>
 
@@ -63,9 +47,7 @@ const Image: React.FC = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <MyModalContent modalClose={handleModalClose} />
-        </Box>
+        <MyModalContent modalClose={handleModalClose} />
       </Modal>
     </ImageContainer>
   );
