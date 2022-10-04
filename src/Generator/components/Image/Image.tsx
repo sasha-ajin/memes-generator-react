@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, RefObject } from "react";
 import {
   ImageContainer,
   StyledImage,
@@ -11,7 +11,7 @@ import MyModalContent from "./components/ModalContent/ModalContent";
 import { SelectImageContext } from "context/context";
 
 type ImageProp = {
-  divRef: any;
+  divRef: RefObject<HTMLDivElement> | null;
 };
 
 const Image: React.FC<ImageProp> = (props) => {
