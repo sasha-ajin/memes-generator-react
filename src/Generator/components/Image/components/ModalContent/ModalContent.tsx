@@ -25,7 +25,7 @@ const initialTextBox: BoxType = {
   color: "#ffffff",
   fontWeight: 38,
   colorOutlined: "#000000",
-  outlineWeight: 1,
+  outlineWeight: 5,
 };
 
 const style = {

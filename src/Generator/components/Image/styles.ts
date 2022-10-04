@@ -38,26 +38,27 @@ export const TextBox = styled.div<ITextBox>`
   left: ${(props) => props.x}px;
   top: ${(props) => props.y}px;
   color: ${(props) => props.color};
-  text-shadow: 0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black,
-    0 0 ${(props) => props.outlineWeight}px black;
+  text-shadow: 0 0 ${(props) => props.outlineWeight}px
+      ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined},
+    0 0 ${(props) => props.outlineWeight}px ${(props) => props.colorOutlined};
 `;
 
 export const StyledButton = styled(Button)`
