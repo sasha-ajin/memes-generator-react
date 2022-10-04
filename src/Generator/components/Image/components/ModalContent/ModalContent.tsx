@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import { SelectImageContext } from "context/context";
 import { Image } from "types/Image";
 import { isEqualImages } from "utils/isEqualImages";
-// import { ImageCreateBody } from "types/ImageCreateBody";
 import { Box as BoxType } from "types/Box";
 import Box from "@mui/material/Box";
 
@@ -30,7 +29,6 @@ const initialTextBox: BoxType = {
 };
 
 const style = {
-  // position: "absolute" as "absolute",
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -60,33 +58,6 @@ const ModalContent: React.FC<ModalContentProps> = (props) => {
     }
     setTextBoxes(textBoxesVar);
   };
-  // const createImg = async () => {
-  //   const response = await ImageService.create({
-  //     template_id: "181913649",
-  //     username: "sashaajin",
-  //     password: "ffiiffssaarrll22",
-  //     font: "arial",
-  //     boxes: [
-  //       {
-  //         text: "One does not simply",
-  //         x: 10,
-  //         y: 10,
-  //         width: 548,
-  //         height: 100,
-  //         color: "#ffffff",
-  //       },
-  //       {
-  //         text: "Make custom memes on the web via imgflip API",
-  //         x: 10,
-  //         y: 225,
-  //         width: 548,
-  //         height: 100,
-  //         color: "#ffffff",
-  //       },
-  //     ],
-  //   });
-  //   console.log(response);
-  // };
   useEffect(() => {
     fetchImages();
   }, []);
@@ -126,7 +97,6 @@ const ModalContent: React.FC<ModalContentProps> = (props) => {
           >
             Select
           </StyledButton>
-          {/* <button onClick={() => createImg()}>sssss</button> */}
         </StyledButtonsContainer>
       </ModalContentContainer>
     </Box>
