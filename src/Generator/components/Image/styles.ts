@@ -39,8 +39,8 @@ export const TextBox = styled.div<ITextBox>`
   left: ${(props) => props.x}px;
   top: ${(props) => props.y}px;
   color: ${(props) => props.color};
-  -webkit-text-stroke: ${(props) => props.outlineWeight}px
-    ${(props) => props.colorOutlined};
+  -webkit-text-stroke-width: ${(props) => props.outlineWeight}px;
+  -webkit-text-stroke-color: ${(props) => props.colorOutlined};
 `;
 
 export const StyledButton = styled(Button)`

@@ -11,7 +11,11 @@ import { SelectImageContext } from "context/context";
 import Typography from "@mui/material/Typography";
 import { Box } from "types/Box";
 
-const Inputs: React.FC = () => {
+type InputsProps = {
+  saveMeme: () => any;
+};
+
+const Inputs: React.FC<InputsProps> = (props) => {
   const { selectedImage, textBoxes, setTextBoxes } =
     useContext(SelectImageContext);
   const handleUpdateFieldChanged = (
@@ -136,8 +140,9 @@ const Inputs: React.FC = () => {
           disabled={selectedImage === null && true}
           variant="contained"
           fullWidth
+          onClick={props.saveMeme}
         >
-          Save
+          save
         </StyledButton>
       </InputsContainer>
     </div>

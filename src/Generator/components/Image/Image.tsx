@@ -10,15 +10,19 @@ import Modal from "@mui/material/Modal";
 import MyModalContent from "./components/ModalContent/ModalContent";
 import { SelectImageContext } from "context/context";
 
-const Image: React.FC = () => {
+type ImageProp = {
+  divRef: any;
+};
+
+const Image: React.FC<ImageProp> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
   const { selectedImage, textBoxes } = useContext(SelectImageContext);
   const emptyImage = "/images/empty_image.png";
   return (
-    <ImageContainer>
-      <StyledImageContainer>
+    <ImageContainer id="imageToInstall">
+      <StyledImageContainer ref={props.divRef}>
         {textBoxes &&
           textBoxes.map((textBox, index) => (
             <TextBox
@@ -37,7 +41,6 @@ const Image: React.FC = () => {
           src={selectedImage === null ? emptyImage : selectedImage.url}
         />
       </StyledImageContainer>
-
       <StyledButton variant="contained" onClick={handleModalOpen}>
         Select Image
       </StyledButton>
