@@ -10,7 +10,7 @@ export const ImageContainer = styled.div`
 
 export const StyledImage = styled.img`
   width: 100%;
-  box-shadow: 0 2px 6px rgb(18 17 36 / 4%), 0 0 16px rgb(18 17 36 / 8%);
+  box-shadow: 0 2px 6px rgb(18 17 36 / 3%), 0 0 16px rgb(18 17 36 / 8%);
 `;
 
 export const StyledImageContainer = styled.div`
@@ -34,13 +34,30 @@ interface ITextBox {
 
 export const TextBox = styled.div<ITextBox>`
   position: absolute;
-  font-family: arial;
   font-size: ${(props) => props.fontWeight}px;
   left: ${(props) => props.x}px;
   top: ${(props) => props.y}px;
   color: ${(props) => props.color};
-  -webkit-text-stroke-width: ${(props) => props.outlineWeight}px;
-  -webkit-text-stroke-color: ${(props) => props.colorOutlined};
+  text-shadow: 0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black,
+    0 0 ${(props) => props.outlineWeight}px black;
 `;
 
 export const StyledButton = styled(Button)`

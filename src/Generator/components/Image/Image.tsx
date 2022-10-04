@@ -21,7 +21,7 @@ const Image: React.FC<ImageProp> = (props) => {
   const { selectedImage, textBoxes } = useContext(SelectImageContext);
   const emptyImage = "/images/empty_image.png";
   return (
-    <ImageContainer id="imageToInstall">
+    <ImageContainer>
       <StyledImageContainer ref={props.divRef}>
         {textBoxes &&
           textBoxes.map((textBox, index) => (
