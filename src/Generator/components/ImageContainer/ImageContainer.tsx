@@ -1,6 +1,6 @@
 import React, { useContext, useState, RefObject } from "react";
 import {
-  ImageContainer,
+  Container,
   StyledImage,
   StyledButton,
   StyledImageContainer,
@@ -10,18 +10,18 @@ import Modal from "@mui/material/Modal";
 import MyModalContent from "./components/ModalContent/ModalContent";
 import { SelectImageContext } from "context/context";
 
-type ImageProp = {
+type ImageContainerProp = {
   divRef: RefObject<HTMLDivElement> | null;
 };
 
-const Image: React.FC<ImageProp> = (props) => {
+const ImageContainer: React.FC<ImageContainerProp> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
   const { selectedImage, textBoxes } = useContext(SelectImageContext);
   const emptyImage = "/images/empty_image.png";
   return (
-    <ImageContainer>
+    <Container>
       <StyledImageContainer ref={props.divRef}>
         {textBoxes &&
           textBoxes.map((textBox, index) => (
@@ -52,8 +52,8 @@ const Image: React.FC<ImageProp> = (props) => {
       >
         <MyModalContent modalClose={handleModalClose} />
       </Modal>
-    </ImageContainer>
+    </Container>
   );
 };
 
-export default Image;
+export default ImageContainer;

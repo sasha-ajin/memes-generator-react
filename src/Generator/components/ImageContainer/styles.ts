@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { device } from "device";
 import Button from "@mui/material/Button";
 
-export const ImageContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;

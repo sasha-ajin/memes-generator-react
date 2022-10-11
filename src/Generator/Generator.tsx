@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { GeneratorContainer, Container } from "./styles";
-import Image from "./components/Image/Image";
+import ImageContainer from "./components/ImageContainer/ImageContainer";
 import InputsContainer from "./components/InputsContainer/InputsContainer";
 import { SelectImageContext } from "context/context";
 import { Image as ImageType } from "types/Image";
@@ -23,7 +23,7 @@ const Generator: React.FC = () => {
     >
       <GeneratorContainer>
         <Container>
-          <Image divRef={installImageRef} />
+          <ImageContainer divRef={installImageRef} />
         </Container>
         <Container>
           <InputsContainer saveMeme={saveMeme} />
