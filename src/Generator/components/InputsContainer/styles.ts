@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import { OutlinedInput } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 
-export const InputsContainer = styled.div`
+export const Container = styled.div`
   width: 90%;
   margin-top: 35px;
   display: flex;

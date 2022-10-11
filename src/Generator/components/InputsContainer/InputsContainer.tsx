@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { OutlinedInput, InputAdornment } from "@mui/material";
 import {
-  InputsContainer,
+  Container,
   StyledButton,
   InputContainer,
   CoordinateOutlinedInput,
@@ -11,11 +11,11 @@ import { SelectImageContext } from "context/context";
 import Typography from "@mui/material/Typography";
 import { Box } from "types/Box";
 
-type InputsProps = {
+type InputsContainerProps = {
   saveMeme: () => any;
 };
 
-const Inputs: React.FC<InputsProps> = (props) => {
+const InputsContainer: React.FC<InputsContainerProps> = (props) => {
   const { selectedImage, textBoxes, setTextBoxes } =
     useContext(SelectImageContext);
   const handleUpdateFieldChanged = (
@@ -30,7 +30,7 @@ const Inputs: React.FC<InputsProps> = (props) => {
   };
   return (
     <div>
-      <InputsContainer>
+      <Container>
         {textBoxes ? (
           textBoxes.map((textBox, index) => (
             <InputContainer key={index}>
@@ -144,9 +144,9 @@ const Inputs: React.FC<InputsProps> = (props) => {
         >
           save
         </StyledButton>
-      </InputsContainer>
+      </Container>
     </div>
   );
 };
 
-export default Inputs;
+export default InputsContainer;
