@@ -4,9 +4,9 @@ import { Box } from "types/Box";
 
 type SelectImageContextContent = {
   selectedImage: Image | null;
-  setSelectedImage: (c: Image | null) => void;
+  setSelectedImage: (image: Image | null) => void;
   textBoxes: Box[] | null;
-  setTextBoxes: (c: Box[] | null) => void;
+  setTextBoxes: (box: Box[] | null) => void;
 };
 
 export const SelectImageContext = createContext<SelectImageContextContent>({
