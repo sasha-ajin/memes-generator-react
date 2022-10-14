@@ -4,11 +4,11 @@ import {
   StyledImage,
   StyledButton,
   StyledImageContainer,
-  TextBox,
 } from "./styles";
 import Modal from "@mui/material/Modal";
 import MyModalContent from "./components/ModalContent/ModalContent";
 import { SelectImageContext } from "context/context";
+import TextBox from "./components/TextBox/TextBox";
 
 type ImageContainerProp = {
   divRef: RefObject<HTMLDivElement> | null;
@@ -27,15 +27,10 @@ const ImageContainer: React.FC<ImageContainerProp> = (props) => {
           textBoxes.map((textBox, index) => (
             <TextBox
               key={index}
-              x={textBox.x}
-              y={textBox.y}
-              fontWeight={textBox.fontWeight}
-              color={textBox.color}
-              colorOutlined={textBox.colorOutlined}
-              outlineWeight={textBox.outlineWeight}
-            >
-              {textBox.text}
-            </TextBox>
+              containerRef={props.divRef}
+              textBoxElement={textBox}
+              index={index}
+            />
           ))}
         <StyledImage
           src={selectedImage === null ? emptyImage : selectedImage.url}
