@@ -47,6 +47,8 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
       isClicked.current = true;
       coords.current.startX = e.clientX;
       coords.current.startY = e.clientY;
+      coords.current.lastX = props.textBoxElement.x;
+      coords.current.lastY = props.textBoxElement.y;
     };
 
     const onMouseUp = (e: MouseEvent) => {
