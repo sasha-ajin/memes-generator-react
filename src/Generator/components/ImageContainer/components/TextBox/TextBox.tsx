@@ -18,12 +18,19 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
     lastX: number;
     lastY: number;
   }>({
-    startX: 0,
-    startY: 0,
-    lastX: 0,
-    lastY: 0,
+    startX: props.textBoxElement.x,
+    startY: props.textBoxElement.y,
+    lastX: props.textBoxElement.x,
+    lastY: props.textBoxElement.y,
   });
   useEffect(() => {
+    if (!props.containerRef) return;
+    if (!boxRef.current || !props.containerRef.current) return;
+    const box = boxRef.current;
+    const container = props.containerRef.current;
+    let isBoxOutOfTheX: boolean;
+    let isBoxOutOfTheY: boolean;
+
     const handleUpdateFieldChanged = (value: any, fieldName: keyof Box) => {
       let newArr: Box[] = textBoxes ? [...textBoxes] : [];
       // @ts-ignore
@@ -31,13 +38,9 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
       setTextBoxes(newArr);
     };
 
-    if (!props.containerRef) return;
-    if (!boxRef.current || !props.containerRef.current) return;
+    // handleUpdateFieldChanged(container.offsetWidth-, "maxX");
+    // handleUpdateFieldChanged(box.offsetHeight, "maxY");
 
-    const box = boxRef.current;
-    const container = props.containerRef.current;
-    let isBoxOutOfTheX: boolean;
-    let isBoxOutOfTheY: boolean;
     const onMouseDown = (e: MouseEvent) => {
       isClicked.current = true;
       coords.current.startX = e.clientX;
