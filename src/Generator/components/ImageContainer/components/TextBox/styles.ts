@@ -11,6 +11,10 @@ interface ITextBoxDiv {
 }
 
 export const TextBoxDiv = styled.div<ITextBoxDiv>`
+  padding: 0px;
+  margin: 0px;
+  // background: red;
+  height: auto;
   user-select: none;
   position: absolute !important;
   font-size: ${(props) => props.fontWeight}px;

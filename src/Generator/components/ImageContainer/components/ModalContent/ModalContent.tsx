@@ -20,8 +20,6 @@ const initialTextBox: BoxType = {
   text: "",
   x: 0,
   y: 0,
-  width: 0,
-  height: 0,
   color: "#ffffff",
   fontWeight: 38,
   colorOutlined: "#000000",

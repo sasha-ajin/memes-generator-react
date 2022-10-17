@@ -40,7 +40,8 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
 
     const box = boxRef.current;
     const container = props.containerRef.current;
-
+    let isBoxOutOfTheX: boolean;
+    let isBoxOutOfTheY: boolean;
     const onMouseDown = (e: MouseEvent) => {
       isClicked.current = true;
       coords.current.startX = e.clientX;
@@ -55,11 +56,14 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
 
     const onMouseMove = (e: MouseEvent) => {
       if (!isClicked.current) return;
-
       const nextX = e.clientX - coords.current.startX + coords.current.lastX;
       const nextY = e.clientY - coords.current.startY + coords.current.lastY;
-      handleUpdateFieldChanged(props.index, nextY, "y");
-      handleUpdateFieldChanged(props.index, nextX, "x");
+      isBoxOutOfTheX =
+        container.offsetWidth < nextX + box.offsetWidth || nextX < 0;
+      isBoxOutOfTheY =
+        container.offsetHeight < nextY + box.offsetHeight || nextY < 0;
+      if (!isBoxOutOfTheY) handleUpdateFieldChanged(props.index, nextY, "y");
+      if (!isBoxOutOfTheX) handleUpdateFieldChanged(props.index, nextX, "x");
     };
 
     box.addEventListener("mousedown", onMouseDown);
