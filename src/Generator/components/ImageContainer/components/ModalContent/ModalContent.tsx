@@ -24,8 +24,8 @@ const initialTextBox: BoxType = {
   fontWeight: 38,
   colorOutlined: "#000000",
   outlineWeight: 5,
-  width: 0,
-  height: 0
+  maxX: 0,
+  maxY: 0,
 };
 
 const style = {

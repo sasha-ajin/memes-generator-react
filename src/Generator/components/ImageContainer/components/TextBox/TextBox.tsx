@@ -30,17 +30,19 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
     const container = props.containerRef.current;
     let isBoxOutOfTheX: boolean;
     let isBoxOutOfTheY: boolean;
-
+    const maxX = container.offsetWidth - box.offsetWidth;
+    const maxY = container.offsetHeight - box.offsetHeight;
     const handleUpdateFieldChanged = (value: any, fieldName: keyof Box) => {
       let newArr: Box[] = textBoxes ? [...textBoxes] : [];
       // @ts-ignore
       newArr[props.index][fieldName] = value;
       setTextBoxes(newArr);
     };
-
-    // handleUpdateFieldChanged(container.offsetWidth-, "maxX");
-    // handleUpdateFieldChanged(box.offsetHeight, "maxY");
-
+    handleUpdateFieldChanged(maxX, "maxX");
+    handleUpdateFieldChanged(maxY, "maxY");
+    if (maxX < props.textBoxElement.x) handleUpdateFieldChanged(maxX, "x");
+    if (maxY < props.textBoxElement.y) handleUpdateFieldChanged(maxY, "y");
+    console.log("ss");
     const onMouseDown = (e: MouseEvent) => {
       isClicked.current = true;
       coords.current.startX = e.clientX;
@@ -78,7 +80,12 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
     };
 
     return cleanup;
-  });
+  }, [
+    props.textBoxElement.x,
+    props.textBoxElement.y,
+    props.textBoxElement.text,
+    props.textBoxElement.fontWeight,
+  ]);
 
   return (
     <TextBoxDiv
@@ -90,6 +97,7 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
       color={props.textBoxElement.color}
       colorOutlined={props.textBoxElement.colorOutlined}
       outlineWeight={props.textBoxElement.outlineWeight}
+      onChange={() => console.log("ddd")}
     >
       {props.textBoxElement.text}
     </TextBoxDiv>

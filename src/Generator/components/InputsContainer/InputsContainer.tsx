@@ -53,6 +53,8 @@ const InputsContainer: React.FC<InputsContainerProps> = (props) => {
                 onChange={(event) => {
                   if (Number(event.target.value) <= 0)
                     handleUpdateFieldChanged(index, 0, "x");
+                  else if (textBox.maxX <= Number(event.target.value))
+                    handleUpdateFieldChanged(index, textBox.maxX, "x");
                   else
                     handleUpdateFieldChanged(
                       index,
@@ -71,6 +73,8 @@ const InputsContainer: React.FC<InputsContainerProps> = (props) => {
                 onChange={(event) => {
                   if (Number(event.target.value) <= 0)
                     handleUpdateFieldChanged(index, 0, "y");
+                  else if (textBox.maxY <= Number(event.target.value))
+                    handleUpdateFieldChanged(index, textBox.maxY, "y");
                   else
                     handleUpdateFieldChanged(
                       index,

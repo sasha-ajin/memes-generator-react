@@ -6,6 +6,6 @@ export type Box = {
   colorOutlined: string;
   fontWeight: number;
   outlineWeight: number;
-  width: number;
-  height: number;
+  maxX: number;
+  maxY: number;
 };
