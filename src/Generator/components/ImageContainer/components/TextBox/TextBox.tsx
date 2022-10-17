@@ -24,14 +24,10 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
     lastY: 0,
   });
   useEffect(() => {
-    const handleUpdateFieldChanged = (
-      index: number,
-      value: any,
-      fieldName: keyof Box
-    ) => {
+    const handleUpdateFieldChanged = (value: any, fieldName: keyof Box) => {
       let newArr: Box[] = textBoxes ? [...textBoxes] : [];
       // @ts-ignore
-      newArr[index][fieldName] = value;
+      newArr[props.index][fieldName] = value;
       setTextBoxes(newArr);
     };
 
@@ -62,8 +58,8 @@ const TextBox: React.FC<TextBoxProp> = (props) => {
         container.offsetWidth < nextX + box.offsetWidth || nextX < 0;
       isBoxOutOfTheY =
         container.offsetHeight < nextY + box.offsetHeight || nextY < 0;
-      if (!isBoxOutOfTheY) handleUpdateFieldChanged(props.index, nextY, "y");
-      if (!isBoxOutOfTheX) handleUpdateFieldChanged(props.index, nextX, "x");
+      if (!isBoxOutOfTheY) handleUpdateFieldChanged(nextY, "y");
+      if (!isBoxOutOfTheX) handleUpdateFieldChanged(nextX, "x");
     };
 
     box.addEventListener("mousedown", onMouseDown);
